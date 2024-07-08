@@ -7,3 +7,9 @@ func BenchmarkPart1(b *testing.B) {
 		Part1()
 	}
 }
+
+func BenchmarkPart2(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Part1()
+	}
+}
