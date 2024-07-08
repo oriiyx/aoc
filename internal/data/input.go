@@ -12,6 +12,8 @@ import (
 func GetInputArray(requestURL string) []string {
 	input := GetInputString(requestURL)
 	lines := strings.Split(input, "\n")
+	lines = deleteEmptyStrings(lines)
+
 	return lines
 }
 
@@ -54,4 +56,14 @@ func GetInputString(requestURL string) string {
 	}
 
 	return string(resBody)
+}
+
+func deleteEmptyStrings(inputs []string) []string {
+	var returnValues []string
+	for _, str := range inputs {
+		if str != "" {
+			returnValues = append(returnValues, str)
+		}
+	}
+	return returnValues
 }

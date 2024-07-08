@@ -2,7 +2,6 @@ package _2019
 
 import (
 	"fmt"
-	"math"
 	"strconv"
 
 	"github.com/oriiyx/aoc/internal/data"
@@ -15,13 +14,16 @@ func Part1() {
 	fuelReq := 0
 	for _, massString := range lines {
 		mass, _ := strconv.Atoi(massString)
-		fuelReq = fuelReq + calculateFuelRequirement(mass)
+		fuelReq += calculateFuelRequirement(mass)
 	}
 
-	fmt.Println(fuelReq)
+	fmt.Printf("Day 1 fuel sum: %v", fuelReq)
 }
 
 func calculateFuelRequirement(mass int) int {
-	fuelReq := math.Floor(float64(mass/3)) - 2
-	return int(fuelReq)
+	return (mass / 3) - 2
+}
+
+func Part2() {
+
 }
