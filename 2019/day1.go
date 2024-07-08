@@ -31,21 +31,26 @@ func Part2() {
 	fuelReq := 0
 
 	for _, massString := range lines {
-		absoluteFuelMass := 0
 		mass, _ := strconv.Atoi(massString)
-		fuelReq += calculateAbsoluteFuelRequirement(mass, absoluteFuelMass)
+		fuelReq += calculateTotalFuelRequirement(mass)
 	}
 
 	fmt.Printf("Day 1 Part 2 fuel sum: %v \n", fuelReq)
 }
 
-func calculateAbsoluteFuelRequirement(mass int, absoluteMass int) int {
-	requirement := calculateFuelRequirement(mass)
+func calculateTotalFuelRequirement(mass int) int {
+	totalFuel := 0
 
-	if requirement > 0 {
-		absoluteMass += requirement
-		absoluteMass = calculateAbsoluteFuelRequirement(requirement, absoluteMass)
+	for {
+		fuel := calculateFuelRequirement(mass)
+
+		if fuel <= 0 {
+			break
+		}
+
+		totalFuel += fuel
+		mass = fuel
 	}
 
-	return absoluteMass
+	return totalFuel
 }
