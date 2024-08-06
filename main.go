@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
-	_2019.Part1()
-	_2019.Part2()
+	// _2019.Day1Part1()
+	// _2019.Day1Part2()
+
+	_2019.Day2Part1()
 }

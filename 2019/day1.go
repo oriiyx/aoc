@@ -7,7 +7,7 @@ import (
 	"github.com/oriiyx/aoc/internal/data"
 )
 
-func Part1() {
+func Day1Part1() {
 	requestURL := "https://adventofcode.com/2019/day/1/input"
 	lines := data.GetInputArray(requestURL)
 
@@ -24,7 +24,7 @@ func calculateFuelRequirement(mass int) int {
 	return (mass / 3) - 2
 }
 
-func Part2() {
+func Day1Part2() {
 	requestURL := "https://adventofcode.com/2019/day/1/input"
 	lines := data.GetInputArray(requestURL)
 
