@@ -20,7 +20,7 @@ func GetInputArray(requestURL string) []string {
 func GetInputString(requestURL string) string {
 	cookie := &http.Cookie{
 		Name:  "session",
-		Value: "53616c7465645f5f0551105146976e526fb48d374cea918692d558dbb2789b0c5ba8dadcf3006ee793ea3ab270af21c8d6fe14c0d03a0b1ab5e87bcfff6bd1e6",
+		Value: "53616c7465645f5f2ea8c6960a8139b9b6c5f9ce68a06e7ceef2420e0fe5c264b61a124d3c06c7fc49a5c25a53b91abb60beb97e51a04873ab0a35c0bcaa1173",
 	}
 
 	jar, err := cookiejar.New(nil)
