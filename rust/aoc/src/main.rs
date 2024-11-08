@@ -9,5 +9,10 @@ fn main() {
     let day1p1 = year_2019::day_1::part_1::run();
     println!("Day1 Part1: {:?}", day1p1);
     let day1p2 = year_2019::day_1::part_2::run();
-    println!("Day1 Part2: {:?}", day1p2)
+    println!("Day1 Part2: {:?}", day1p2);
+
+    println!("------");
+
+    let day2p1 = year_2019::day_2::part_1::run();
+    println!("Day2 Part1: {:?}", day2p1);
 }
