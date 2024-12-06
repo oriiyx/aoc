@@ -1,6 +1,7 @@
 package data
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"net/http"
@@ -20,7 +21,7 @@ func GetInputArray(requestURL string) []string {
 func GetInputString(requestURL string) string {
 	cookie := &http.Cookie{
 		Name:  "session",
-		Value: "53616c7465645f5f2ea8c6960a8139b9b6c5f9ce68a06e7ceef2420e0fe5c264b61a124d3c06c7fc49a5c25a53b91abb60beb97e51a04873ab0a35c0bcaa1173",
+		Value: "53616c7465645f5ffb7b0ff56b570baed4844245e1b6c6234c66f20561ea732fd6b4bde725d899fd85cba4a26d966f0d93d7031d3f4d8b56112f9fbd7d5c5817",
 	}
 
 	jar, err := cookiejar.New(nil)
@@ -66,4 +67,30 @@ func deleteEmptyStrings(inputs []string) []string {
 		}
 	}
 	return returnValues
+}
+
+// ReadLines reads a file and returns its contents as a string slice,
+// with each line as a separate element.
+func ReadLines(filename string) ([]string, error) {
+	dir, err := os.Getwd()
+
+	file, err := os.Open(dir + "/" + filename)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		// Trim any Windows-style line endings
+		line := strings.TrimRight(scanner.Text(), "\r")
+		lines = append(lines, line)
+	}
+
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+
+	return lines, nil
 }
